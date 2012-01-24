@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+	<description>
+	Your gromacs roll description here
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2011 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.4.3 www.rocksclusters.org
+	
+	</copyright>
+
+	<changelog>
+	$Log: gromacs.xml,v $
+	Revision 1.1  2012/01/24 02:23:33  clem
+	Gromacs 4.5.5 compiled with mpi
+	
+	</changelog>
+
+	<package>gromacs</package>
+	<package>rocks-gromacs</package>
+	<package>roll-gromacs-usersguide</package>
+
+
+</kickstart>

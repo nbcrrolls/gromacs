@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+	<description>
+
+	The gromacs Roll
+
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2011 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.4.3 www.rocksclusters.org
+	
+	</copyright>
+
+	<changelog>
+	$Log: gromacs.xml,v $
+	Revision 1.1  2012/01/24 02:23:33  clem
+	Gromacs 4.5.5 compiled with mpi
+	
+	</changelog>
+
+        <edge from="server" to="gromacs"/>
+        <edge from="client" to="gromacs"/>
+
+</graph>
