@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2012/01/24 02:23:34 clem Exp $
+# $Id: Makefile,v 1.2 2012/01/25 22:20:04 clem Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.2  2012/01/25 22:20:04  clem
+# Some fixes
+#
 # Revision 1.1  2012/01/24 02:23:34  clem
 # Gromacs 4.5.5 compiled with mpi
 #
@@ -66,6 +69,9 @@ include Rules.mk
 
 build:
 	gunzip -c $(NAME)-$(VERSION).$(TARBALL_POSTFIX) | $(TAR) -xf -
+	#dependency library
+	(rpm -ivh ../../src/RPMS/fftw3-3.1.1-1.el5.rf.x86_64.rpm; \
+	rpm -ivh ../../src/RPMS/fftw3-devel-3.1.1-1.el5.rf.x86_64.rpm; echo 0)
 	( 							\
 		cd $(NAME)-$(VERSION);				\
 		./configure --prefix=$(PKGROOT)/$(NAME) --enable-mpi --with-fft=fftw3 --disable-float;	\
