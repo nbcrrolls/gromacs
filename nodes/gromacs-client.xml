@@ -14,15 +14,19 @@
 	</copyright>
 
 	<changelog>
-	$Log: gromacs.xml,v $
-	Revision 1.1  2012/01/24 02:23:33  clem
-	Gromacs 4.5.5 compiled with mpi
+	$Log: gromacs-client.xml,v $
+	Revision 1.1  2012/01/25 02:35:58  clem
+	- updated some path for the cadd pipeline script
+	   /opt/opal/deployed for all the opal deployed scripts
+	   /opt/cadd/bin for cadd related scripts
+	- more gromacs scripts in place
 	
 	</changelog>
 
+
 	<package>gromacs</package>
+	<package>gromacs-cadd</package>
 	<package>rocks-gromacs</package>
-	<package>roll-gromacs-usersguide</package>
 
 
 </kickstart>

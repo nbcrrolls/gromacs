@@ -16,12 +16,20 @@
 
 	<changelog>
 	$Log: gromacs.xml,v $
-	Revision 1.1  2012/01/24 02:23:33  clem
-	Gromacs 4.5.5 compiled with mpi
+	Revision 1.2  2012/01/25 02:35:58  clem
+	- updated some path for the cadd pipeline script
+	   /opt/opal/deployed for all the opal deployed scripts
+	   /opt/cadd/bin for cadd related scripts
+	- more gromacs scripts in place
 	
 	</changelog>
 
-        <edge from="server" to="gromacs"/>
-        <edge from="client" to="gromacs"/>
+        <edge from="server" to="gromacs-server"/>
+        <edge from="client" to="gromacs-client"/>
+
+	<order head="opal">
+		<tail>gromacs-server</tail>
+	</order>
+
 
 </graph>
