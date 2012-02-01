@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.3 2012/02/01 18:36:37 clem Exp $
+# $Id: Makefile,v 1.1 2012/02/01 18:36:36 clem Exp $
 #
 # @Copyright@
 # 
@@ -54,7 +54,7 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.3  2012/02/01 18:36:37  clem
+# Revision 1.1  2012/02/01 18:36:36  clem
 # Gromacs in single precision with fftw library compiled from source. Bootstrap script
 #
 # Revision 1.2  2012/01/25 22:20:04  clem
@@ -75,16 +75,21 @@ build:
 	#dependency library
 	( 							\
 		cd $(NAME)-$(VERSION);				\
-		./configure --prefix=$(PKGROOT)/$(NAME) --enable-mpi --with-fft=fftw3;	\
+		./configure  --enable-shared --enable-float;\
 		$(MAKE);					\
 	)
 	
 install::
-	mkdir -p $(ROOT)/$(PKGROOT)/$(NAME)
+	mkdir -p $(ROOT)/$(PKGROOT)
 	(							\
 		cd $(NAME)-$(VERSION);				\
-		$(MAKE) prefix=$(ROOT)/$(PKGROOT)/$(NAME) install;\
+		$(MAKE) prefix=$(ROOT)/$(PKGROOT) install;\
 	)
+	#I couldnot find a nicer way to rename lib to lib64
+	mv $(ROOT)/$(PKGROOT)/lib $(ROOT)/$(PKGROOT)/lib64
+	#this file make problem rpm package
+	rm $(ROOT)/$(PKGROOT)/share/info/dir
 
 clean::
+	#(cd $(NAME)-$(VERSION); make uninstall;)
 	rm -rf $(NAME)-$(VERSION)

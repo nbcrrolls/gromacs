@@ -21,8 +21,7 @@
 	<!-- <package>gromacs-opal</package>
 	<package>gromacs-cadd</package> -->
 	<package>rocks-gromacs</package>
-	<package>fftw3</package>
-	<package>fftw3-devel</package>
+	<package>fftw</package>
 	<package>roll-gromacs-usersguide</package>
 
 

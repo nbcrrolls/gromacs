@@ -1,4 +1,8 @@
-# $Id: Makefile,v 1.3 2012/02/01 18:36:37 clem Exp $
+#!/bin/bash
+#
+# This file should remain OS independent
+#
+# $Id: bootstrap.sh,v 1.1 2012/02/01 18:36:36 clem Exp $
 #
 # @Copyright@
 # 
@@ -53,38 +57,9 @@
 # 
 # @Copyright@
 #
-# $Log: Makefile,v $
-# Revision 1.3  2012/02/01 18:36:37  clem
-# Gromacs in single precision with fftw library compiled from source. Bootstrap script
-#
-# Revision 1.2  2012/01/25 22:20:04  clem
-# Some fixes
-#
-# Revision 1.1  2012/01/24 02:23:34  clem
-# Gromacs 4.5.5 compiled with mpi
 #
 
-REDHAT.ROOT = $(CURDIR)/../../
+. $ROLLSROOT/etc/bootstrap-functions.sh
 
--include $(ROCKSROOT)/etc/Rules.mk
-include Rules.mk
+compile_and_install fftw
 
-
-build:
-	gunzip -c $(NAME)-$(VERSION).$(TARBALL_POSTFIX) | $(TAR) -xf -
-	#dependency library
-	( 							\
-		cd $(NAME)-$(VERSION);				\
-		./configure --prefix=$(PKGROOT)/$(NAME) --enable-mpi --with-fft=fftw3;	\
-		$(MAKE);					\
-	)
-	
-install::
-	mkdir -p $(ROOT)/$(PKGROOT)/$(NAME)
-	(							\
-		cd $(NAME)-$(VERSION);				\
-		$(MAKE) prefix=$(ROOT)/$(PKGROOT)/$(NAME) install;\
-	)
-
-clean::
-	rm -rf $(NAME)-$(VERSION)
