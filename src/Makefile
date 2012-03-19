@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2012/01/24 02:23:33 clem Exp $
+# $Id: Makefile,v 1.2 2012/03/19 22:14:00 clem Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.2  2012/03/19 22:14:00  clem
+# Makefile minor fix to stop compilation when there are errors
+#
 # Revision 1.1  2012/01/24 02:23:33  clem
 # Gromacs 4.5.5 compiled with mpi
 #
@@ -65,5 +68,7 @@ default:	pkg
 
 copyright pkg rpm clean::
 	for i in $(SRCDIRS) ; do \
-		(cd $$i; $(MAKE) $@) ; \
+		cd $$i; \
+		$(MAKE) $@ || exit 2 ; \
+		cd ..; \
 	done
