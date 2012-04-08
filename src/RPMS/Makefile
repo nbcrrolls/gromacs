@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2012/01/26 20:21:03 clem Exp $
+# $Id: Makefile,v 1.2 2012/04/08 22:22:10 nadya Exp $
 #
 # @Copyright@
 # 
@@ -60,10 +60,10 @@ MAKE.iscontrib  = 1
 include Rules.mk
 
 rpm::   build
-        -cp *.$(ARCH).rpm $(REDHAT.RPMS)/$(ARCH)/
+	-cp *.$(ARCH).rpm $(REDHAT.RPMS)/$(ARCH)/
 
 build:
-        mkdir -p $(REDHAT.RPMS)/$(ARCH)/
+	mkdir -p $(REDHAT.RPMS)/$(ARCH)/
 
 
 
