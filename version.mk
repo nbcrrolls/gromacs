@@ -1,5 +1,4 @@
 ROLLNAME	= gromacs
-VERSION		= 5.4.3
 RELEASE		= 0
 COLOR		= blue
 
